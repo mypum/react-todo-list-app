@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { TodoStore } from '../features/Todo'
 
 import TodoItem from './TodoItem'
 
 export default function TodoList(props) {
-  const { children } = props
-  return <div>{children}</div>
-}
+  const { todos } = useContext(TodoStore)
 
-TodoList.Item = TodoItem
+  return (
+    <div>
+      {todos.map((todo, i) => (
+        <TodoItem key={i}>{todo}</TodoItem>
+      ))}
+    </div>
+  )
+}
