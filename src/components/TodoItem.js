@@ -24,6 +24,16 @@ export default function TodoItem(props) {
     })
   }
 
+  function handleTodoUpdateStatus(status) {
+    dispatch({
+      type: 'UPDATE_STATUS_TODO',
+      payload: {
+        id,
+        status,
+      },
+    })
+  }
+
   function handleSubmitForm(event) {
     if (event.keyCode === 13) {
       handleTodoEdit()
@@ -54,6 +64,13 @@ export default function TodoItem(props) {
 
     return (
       <React.Fragment>
+        <button
+          onClick={e => {
+            e.preventDefault()
+            handleTodoUpdateStatus('complete')
+          }}>
+          Done
+        </button>
         {content}
         <button onClick={handleClickEditButton}>Edit</button>
         <button onClick={handleTodoRemove}>x</button>
