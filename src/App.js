@@ -1,21 +1,16 @@
-import React from 'react'
+import React, { useContext, useReducer } from 'react'
 
-import { TodoStore } from './features/Todo'
+import { TodoStore, TodoReducer } from './features/Todo'
 
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
 
 export default function App() {
+  const todoContext = useContext(TodoStore)
+  const [state, dispatch] = useReducer(TodoReducer, todoContext)
+
   return (
-    <TodoStore.Provider
-      value={{
-        todos: [
-          'Lorem ipsum dolor sit amet.',
-          'Laborum iure repudiandae dicta quo!',
-          'Eligendi quasi deserunt corrupti error!',
-          'Odio hic deleniti perferendis dolore.',
-        ],
-      }}>
+    <TodoStore.Provider value={{ state, dispatch }}>
       <TodoForm />
       <TodoList />
     </TodoStore.Provider>

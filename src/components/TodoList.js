@@ -5,11 +5,11 @@ import { TodoStore } from '../features/Todo'
 import TodoItem from './TodoItem'
 
 export default function TodoList(props) {
-  const { todos } = useContext(TodoStore)
+  const { state } = useContext(TodoStore)
 
   return (
     <div>
-      {todos.map((todo, i) => (
+      {state.todos.map((todo, i) => (
         <TodoItem key={i}>{todo}</TodoItem>
       ))}
     </div>
