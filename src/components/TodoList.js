@@ -6,6 +6,7 @@ import TodoItem from './TodoItem'
 
 export default function TodoList(props) {
   const { state } = useContext(TodoStore)
+
   return (
     <div>
       {state.todos.map((todo, i) => (
