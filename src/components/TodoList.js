@@ -6,11 +6,10 @@ import TodoItem from './TodoItem'
 
 export default function TodoList(props) {
   const { state } = useContext(TodoStore)
-
   return (
     <div>
       {state.todos.map((todo, i) => (
-        <TodoItem key={i} todo={todo} />
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </div>
   )
