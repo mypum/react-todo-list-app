@@ -1,0 +1,7 @@
+{
+    "eslint.autoFixOnSave": true,
+    "search.exclude": {
+        ".vscode": true,
+        "node_modules": true
+    }
+}
