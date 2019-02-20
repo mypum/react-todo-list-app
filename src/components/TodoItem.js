@@ -67,7 +67,7 @@ export default function TodoItem(props) {
         <button
           onClick={e => {
             e.preventDefault()
-            handleTodoUpdateStatus('complete')
+            handleTodoUpdateStatus('completed')
           }}>
           Done
         </button>

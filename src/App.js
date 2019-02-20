@@ -4,6 +4,7 @@ import { TodoStore, TodoReducer } from './features/Todo'
 
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList'
+import TodoHeader from './components/TodoHeader'
 
 export default function App() {
   const todoContext = useContext(TodoStore)
@@ -11,6 +12,7 @@ export default function App() {
 
   return (
     <TodoStore.Provider value={{ state, dispatch }}>
+      <TodoHeader />
       <TodoForm />
       <TodoList />
     </TodoStore.Provider>
