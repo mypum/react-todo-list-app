@@ -1,5 +1,7 @@
 import { css } from 'styled-components'
 
+const mainFont = '"Kanit", sans-serif'
+
 export default css`
   html {
     box-sizing: border-box;
@@ -20,10 +22,10 @@ export default css`
 
   body {
     font-size: 1rem;
-    font-family: tahoma, Helvetica;
+    font-family: ${mainFont};
     line-height: 1.5;
-    color: #666666;
-    background-color: #fff;
+    color: #0d142c;
+    background-color: #e6e6f4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -127,7 +129,7 @@ export default css`
   input,
   select,
   textarea {
-    font-family: tahoma, Helvetica;
+    font-family: ${mainFont};
   }
 
   a {
@@ -148,7 +150,7 @@ export default css`
   h6 {
     margin: 0;
     font-size: 1rem;
-    font-family: tahoma, Helvetica;
+    font-family: ${mainFont};
     font-weight: 400;
   }
 

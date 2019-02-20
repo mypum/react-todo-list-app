@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import styled from 'styled-components'
 
 import { TodoStore } from '../features/Todo'
 
@@ -62,21 +63,79 @@ export default function TodoItem(props) {
       )
     }
 
-    return (
-      <React.Fragment>
-        <button
-          onClick={e => {
-            e.preventDefault()
-            handleTodoUpdateStatus('completed')
-          }}>
-          Done
-        </button>
-        {content}
-        <button onClick={handleClickEditButton}>Edit</button>
-        <button onClick={handleTodoRemove}>x</button>
-      </React.Fragment>
-    )
+    return <TodoTitle>{content}</TodoTitle>
   }
 
-  return <div>{renderContent()}</div>
+  return (
+    <TodoWrap>
+      <DoneButtonWrap>
+        <DoneButton
+          onClick={() => {
+            handleTodoUpdateStatus('completed')
+          }}
+        />
+      </DoneButtonWrap>
+      <TodoContent>{renderContent()}</TodoContent>
+      <MoreWrap>
+        <MoreButton>
+          <span>...</span>
+        </MoreButton>
+        <MoreFloat>
+          <button onClick={handleClickEditButton}>Edit</button>
+          <button onClick={handleTodoRemove}>x</button>
+        </MoreFloat>
+      </MoreWrap>
+    </TodoWrap>
+  )
 }
+
+const TodoWrap = styled.div`
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #e7e7f5;
+  position: relative;
+`
+
+const TodoTitle = styled.span`
+  font-size: 22px;
+  line-height: 1.1;
+`
+
+const TodoContent = styled.div`
+  flex-grow: 1;
+`
+
+const DoneButtonWrap = styled.div`
+  flex: 1 0 40px;
+  max-width: 40px;
+`
+
+const DoneButton = styled.div`
+  background-color: transparent;
+  border: 4px solid #623aeb;
+  display: block;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 20px;
+  cursor: pointer;
+`
+
+const MoreWrap = styled.div`
+  flex: 1 0 40px;
+  max-width: 40px;
+`
+
+const MoreButton = styled.div`
+  flex: 1 0 40px;
+  max-width: 40px;
+`
+
+const MoreFloat = styled.div`
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: 0px 0px 125px 0px rgba(46, 27, 111, 0.18);
+`
