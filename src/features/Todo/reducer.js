@@ -16,7 +16,7 @@ export default function reducer(state, { type, payload }) {
           {
             id: uniqid(),
             content: payload,
-            status: 'uncomplete',
+            status: 'incomplete',
           },
         ],
       }
@@ -53,6 +53,12 @@ export default function reducer(state, { type, payload }) {
       )
 
       return { ...state, todos: updatedStatusTodos }
+
+    case 'CHANGE_TAB':
+      return {
+        ...state,
+        tab: payload,
+      }
 
     default:
       return state
