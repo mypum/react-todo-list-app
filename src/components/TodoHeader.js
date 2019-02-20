@@ -14,9 +14,9 @@ function TodoHeader() {
   const getCompletedPercentage = () => {
     const numAllTodo = todos.length
     const numCompletedTodo = todos.filter(t => t.status === 'completed').length
-    const someZero = [numAllTodo, numCompletedTodo]
+    const numList = [numAllTodo, numCompletedTodo]
 
-    if (someZero.includes(0)) return 0
+    if (numList.includes(0)) return 0
 
     const percentage = (numCompletedTodo / numAllTodo) * 100
 
