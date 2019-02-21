@@ -1,10 +1,10 @@
 import React, { useMemo, useContext } from 'react'
-
+import styled from 'styled-components'
 import { TodoStore } from '../features/Todo'
 
 function TodoHeader() {
   const { state, dispatch } = useContext(TodoStore)
-  const { todos } = state
+  const { todos, tab } = state
 
   const handleClickTab = tab => e => {
     e.preventDefault()
@@ -30,13 +30,42 @@ function TodoHeader() {
   }, [todos])
 
   return (
-    <div>
+    <Wrapper>
       <div>Completed: {`${completedPercentage}%`}</div>
-      <button onClick={handleClickTab('all')}>All</button>
-      <button onClick={handleClickTab('completed')}>Completed</button>
-      <button onClick={handleClickTab('incomplete')}>Incomplete</button>
-    </div>
+      <Button active={tab === 'all'} onClick={handleClickTab('all')}>
+        All
+      </Button>
+      <Button
+        active={tab === 'completed'}
+        onClick={handleClickTab('completed')}>
+        Completed
+      </Button>
+      <Button
+        active={tab === 'incomplete'}
+        onClick={handleClickTab('incomplete')}>
+        Incomplete
+      </Button>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  padding: 0 60px;
+  margin-bottom: 10px;
+`
+
+const Button = styled.button`
+  border-radius: 12px;
+  padding: 6px 15px;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  outline: none;
+  color: #613fea;
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${({ active }) => (active ? '#ECE7FF' : 'transparent')};
+  background-color: ${({ active }) => (active ? '#ECE7FF' : '#fff')};
+`
 
 export default TodoHeader
