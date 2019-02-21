@@ -1,4 +1,6 @@
 import React, { useContext, useMemo } from 'react'
+import { isEmpty } from 'lodash'
+import styled from 'styled-components'
 
 import { TodoStore } from '../features/Todo'
 
@@ -8,7 +10,7 @@ export default function TodoList(props) {
   const { state } = useContext(TodoStore)
   const { tab, todos } = state
 
-  function filterTodos() {
+  function getFilteredTodos() {
     switch (tab) {
       case 'completed':
         return todos.filter(t => t.status === 'completed')
@@ -20,14 +22,39 @@ export default function TodoList(props) {
   }
 
   const filteredTodos = useMemo(() => {
-    return filterTodos()
+    return getFilteredTodos()
   }, [tab, todos])
 
+  if (isEmpty(filteredTodos)) {
+    return (
+      <EmptyContent>
+        <span>Empty Tasks</span>
+      </EmptyContent>
+    )
+  }
+
   return (
-    <div>
+    <Wrapper>
       {filteredTodos.map((todo, i) => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
-    </div>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  min-height: 200px;
+`
+
+const EmptyContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+
+  span {
+    text-transform: uppercase;
+    font-size: 22px;
+    color: #ddd;
+  }
+`
