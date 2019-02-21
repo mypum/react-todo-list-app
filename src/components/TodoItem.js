@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ClickOutside from 'react-click-outside'
 
 import { TodoStore } from '../features/Todo'
+import Checkbox from './Checkbox'
 
 export default function TodoItem(props) {
   const { id, status } = props.todo
@@ -65,6 +66,14 @@ export default function TodoItem(props) {
     }
   }
 
+  function toggleTodoStatus() {
+    if (status === 'completed') {
+      return handleTodoUpdateStatus('incomplete')
+    }
+
+    return handleTodoUpdateStatus('completed')
+  }
+
   function renderContent() {
     if (isEdit) {
       return (
@@ -91,10 +100,9 @@ export default function TodoItem(props) {
         <TodoBg isEdit={isEdit}>
           <TodoRow isActionExpand={isActionExpand}>
             <DoneButtonWrap>
-              <DoneButton
-                onClick={() => {
-                  handleTodoUpdateStatus('completed')
-                }}
+              <Checkbox
+                done={status === 'completed'}
+                clickHandler={toggleTodoStatus}
               />
             </DoneButtonWrap>
             <TodoContent>{renderContent()}</TodoContent>
@@ -164,23 +172,6 @@ const DoneButtonWrap = styled.div`
   flex: 1 0 40px;
   max-width: 40px;
   padding: 15px 0;
-`
-
-const DoneButton = styled.div`
-  background-color: transparent;
-  border: 2px solid #623aeb;
-  display: block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  margin-right: 20px;
-  cursor: pointer;
-
-  @media (min-width: 900px) {
-    height: 25px;
-    width: 25px;
-    border: 4px solid #623aeb;
-  }
 `
 
 const MoreWrap = styled.div`
