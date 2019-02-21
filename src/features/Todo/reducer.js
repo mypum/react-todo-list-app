@@ -9,6 +9,10 @@ function replaceItemArray(arr, index, item) {
 export default function reducer(state, { type, payload }) {
   switch (type) {
     case 'ADD_TODO':
+      if (!payload) {
+        return state
+      }
+
       return {
         ...state,
         todos: [

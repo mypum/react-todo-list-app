@@ -26,7 +26,7 @@ const TodoStore = React.createContext({
     {
       id: 2357806,
       content: 'เอารถไปล้าง',
-      status: 'completed',
+      status: 'incomplete',
     },
     {
       id: 444378,

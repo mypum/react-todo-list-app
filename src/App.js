@@ -34,7 +34,7 @@ export default function App() {
 const Wrapper = styled.div`
   width: 780px;
   margin: 30px auto 0;
-  padding: 60px 0;
+  padding: 40px 0 60px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0px 0px 125px 0px rgba(46, 27, 111, 0.18);

@@ -99,14 +99,16 @@ export default function TodoItem(props) {
             </DoneButtonWrap>
             <TodoContent>{renderContent()}</TodoContent>
             <MoreWrap>
-              <MoreButton onClick={toggleButtonGroup}>+</MoreButton>
+              <MoreButton onClick={toggleButtonGroup}>
+                {isActionExpand ? '-' : '+'}
+              </MoreButton>
             </MoreWrap>
           </TodoRow>
         </TodoBg>
         {isActionExpand && (
           <ActionGroup>
-            <button onClick={handleClickEditButton}>Edit To-do</button>
-            <button onClick={handleTodoRemove}>Delete To-do</button>
+            <button onClick={handleClickEditButton}>Edit</button>
+            <button onClick={handleTodoRemove}>Delete</button>
           </ActionGroup>
         )}
       </TodoWrap>
@@ -205,10 +207,12 @@ const ActionGroup = styled.div`
     border: 1px solid #eee;
     padding: 6px 25px;
     outline: none;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 
     &:hover {
       color: #623aeb;
+      background-color: #ece7ff;
     }
   }
 `

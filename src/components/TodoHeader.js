@@ -1,6 +1,7 @@
 import React, { useMemo, useContext } from 'react'
 import styled from 'styled-components'
 import { TodoStore } from '../features/Todo'
+import TodoProgress from './TodoProgress'
 
 function TodoHeader() {
   const { state, dispatch } = useContext(TodoStore)
@@ -31,7 +32,7 @@ function TodoHeader() {
 
   return (
     <Wrapper>
-      <div>Completed: {`${completedPercentage}%`}</div>
+      <TodoProgress percentage={completedPercentage} />
       <Button active={tab === 'all'} onClick={handleClickTab('all')}>
         All
       </Button>
@@ -56,15 +57,13 @@ const Wrapper = styled.div`
 
 const Button = styled.button`
   border-radius: 12px;
-  padding: 6px 15px;
+  padding: 7px 15px;
   font-size: 16px;
   margin-right: 10px;
   cursor: pointer;
   outline: none;
   color: #613fea;
-  border-width: 1px;
-  border-style: solid;
-  border-color: ${({ active }) => (active ? '#ECE7FF' : 'transparent')};
+  border: none;
   background-color: ${({ active }) => (active ? '#ECE7FF' : '#fff')};
 `
 
