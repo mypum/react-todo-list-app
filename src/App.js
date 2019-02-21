@@ -32,9 +32,9 @@ export default function App() {
 }
 
 const Wrapper = styled.div`
-  width: 680px;
+  width: 780px;
   margin: 30px auto 0;
-  padding: 60px;
+  padding: 60px 0;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0px 0px 125px 0px rgba(46, 27, 111, 0.18);
