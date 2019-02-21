@@ -145,7 +145,7 @@ const TodoTitle = styled.span`
   font-weight: 300;
   line-height: 1.1;
   transition: color 0.2s ease-in-out;
-
+  height: 32px;
   color: ${({ status }) => (status === 'completed' ? '#999' : '#222')};
   text-decoration: ${({ status }) =>
     status === 'completed' ? 'line-through' : 'none'};
@@ -157,7 +157,7 @@ const TodoTitle = styled.span`
 
 const TodoContent = styled.div`
   flex-grow: 1;
-  padding: 15px 0;
+  padding: 10px 0;
 `
 
 const DoneButtonWrap = styled.div`
@@ -168,13 +168,19 @@ const DoneButtonWrap = styled.div`
 
 const DoneButton = styled.div`
   background-color: transparent;
-  border: 4px solid #623aeb;
+  border: 2px solid #623aeb;
   display: block;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   margin-right: 20px;
   cursor: pointer;
+
+  @media (min-width: 900px) {
+    height: 25px;
+    width: 25px;
+    border: 4px solid #623aeb;
+  }
 `
 
 const MoreWrap = styled.div`
@@ -187,18 +193,21 @@ const MoreWrap = styled.div`
 const MoreButton = styled.button`
   position: absolute;
   height: 55px;
-  width: 55px;
+  flex: 1;
+  white-space: normal;
+  width: 100%;
   top: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 38px;
+  font-size: 28px;
   line-height: 0;
   cursor: pointer;
+
+  @media (min-width: 900px) {
+    font-size: 38px;
+  }
 `
 
 const ActionGroup = styled.div`
@@ -232,7 +241,6 @@ const ActionGroup = styled.div`
 
 const EditInput = styled.div`
   input {
-    height: 24px;
     border: none;
     outline: none;
     background-color: transparent;
@@ -240,7 +248,7 @@ const EditInput = styled.div`
     font-weight: 300;
     width: 100%;
     margin-left: -1px;
-
+    line-height: 1.1;
     @media (min-width: 900px) {
       font-size: 20px;
     }

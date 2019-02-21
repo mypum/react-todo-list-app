@@ -89,6 +89,7 @@ export default css`
     margin: 0;
     line-height: inherit;
     border-radius: 0;
+    -webkit-appearance: none;
   }
 
   input[type='radio']:disabled,

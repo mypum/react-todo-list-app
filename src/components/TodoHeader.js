@@ -62,13 +62,22 @@ const Wrapper = styled.div`
 const Button = styled.button`
   border-radius: 12px;
   padding: 7px 15px;
-  font-size: 16px;
-  margin-right: 10px;
+  font-size: 14px;
+  margin-right: 5px;
   cursor: pointer;
   outline: none;
   color: #613fea;
   border: none;
   background-color: ${({ active }) => (active ? '#ECE7FF' : '#fff')};
+
+  @media (min-width: 375px) {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+  @media (min-width: 900px) {
+    margin-right: 10px;
+  }
 `
 
 export default TodoHeader
