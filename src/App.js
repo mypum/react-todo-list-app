@@ -21,21 +21,34 @@ export default function App() {
     <React.Fragment>
       <GlobalStyle />
       <TodoStore.Provider value={{ state, dispatch }}>
-        <Wrapper>
-          <TodoHeader />
-          <TodoForm />
-          <TodoList />
-        </Wrapper>
+        <Container>
+          <Wrapper>
+            <TodoHeader />
+            <TodoForm />
+            <TodoList />
+          </Wrapper>
+        </Container>
       </TodoStore.Provider>
     </React.Fragment>
   )
 }
 
+const Container = styled.div`
+  padding: 0 15px;
+
+  @media (min-width: 900px) {
+    padding: 0;
+  }
+`
 const Wrapper = styled.div`
-  width: 780px;
-  margin: 30px auto 0;
+  width: 100%;
+  margin: 15px auto 0;
   padding: 40px 0 60px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0px 0px 125px 0px rgba(46, 27, 111, 0.18);
+
+  @media (min-width: 900px) {
+    width: 780px;
+  }
 `

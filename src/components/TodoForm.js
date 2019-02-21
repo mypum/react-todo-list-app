@@ -37,8 +37,12 @@ function TodoForm() {
 }
 
 const Wrapper = styled.div`
-  padding: 0 60px;
+  padding: 0 15px;
   margin-bottom: 10px;
+
+  @media (min-width: 900px) {
+    padding: 0 60px;
+  }
 `
 
 const Input = styled.input`

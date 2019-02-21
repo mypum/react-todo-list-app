@@ -123,7 +123,11 @@ const TodoWrap = styled.div`
 const TodoBg = styled.div`
   background-color: ${({ isEdit }) => (isEdit ? '#fffcee' : '#fff')};
   transition: background-color 0.2s ease-in-out;
-  padding: 0 60px;
+  padding: 0 15px;
+
+  @media (min-width: 900px) {
+    padding: 0 60px;
+  }
 `
 
 const TodoRow = styled.div`
@@ -137,13 +141,18 @@ const TodoRow = styled.div`
 
 const TodoTitle = styled.span`
   position: relative;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.1;
   transition: color 0.2s ease-in-out;
+
   color: ${({ status }) => (status === 'completed' ? '#999' : '#222')};
   text-decoration: ${({ status }) =>
     status === 'completed' ? 'line-through' : 'none'};
+
+  @media (min-width: 900px) {
+    font-size: 20px;
+  }
 `
 
 const TodoContent = styled.div`
@@ -194,7 +203,11 @@ const MoreButton = styled.button`
 
 const ActionGroup = styled.div`
   display: flex;
-  padding: 0 60px;
+  padding: 0 15px;
+
+  @media (min-width: 900px) {
+    padding: 0 60px;
+  }
 
   button {
     &:first-child {
@@ -223,9 +236,13 @@ const EditInput = styled.div`
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     width: 100%;
     margin-left: -1px;
+
+    @media (min-width: 900px) {
+      font-size: 20px;
+    }
   }
 `
