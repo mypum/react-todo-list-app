@@ -20,10 +20,17 @@ function Checkbox({ done = false, clickHandler }) {
   )
 }
 
-const CheckWrap = styled.div`
+const CheckWrap = styled.button`
   transition: opacity 0.2s ease;
   opacity: 0.5;
+  width: 25px;
   height: 25px;
+  display: block;
+  line-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  outline: none;
   cursor: pointer;
 
   &:hover {
