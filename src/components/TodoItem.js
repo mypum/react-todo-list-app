@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
+import ClickOutside from 'react-click-outside'
 
 import { TodoStore } from '../features/Todo'
 
@@ -57,18 +58,27 @@ export default function TodoItem(props) {
     setActionExpand(!isActionExpand)
   }
 
+  function hideActiveTodo() {
+    if (isActionExpand || isEdit) {
+      setActionExpand(false)
+      setEdit(false)
+    }
+  }
+
   function renderContent() {
     if (isEdit) {
       return (
-        <EditInput>
-          <input
-            autoFocus
-            value={content}
-            onChange={handleOnChangeInput}
-            onKeyUp={handleSubmitForm}
-            type="text"
-          />
-        </EditInput>
+        <React.Fragment>
+          <EditInput>
+            <input
+              autoFocus
+              value={content}
+              onChange={handleOnChangeInput}
+              onKeyUp={handleSubmitForm}
+              type="text"
+            />
+          </EditInput>
+        </React.Fragment>
       )
     }
 
@@ -76,29 +86,31 @@ export default function TodoItem(props) {
   }
 
   return (
-    <TodoWrap>
-      <TodoBg isEdit={isEdit}>
-        <TodoRow isActionExpand={isActionExpand}>
-          <DoneButtonWrap>
-            <DoneButton
-              onClick={() => {
-                handleTodoUpdateStatus('completed')
-              }}
-            />
-          </DoneButtonWrap>
-          <TodoContent>{renderContent()}</TodoContent>
-          <MoreWrap>
-            <MoreButton onClick={toggleButtonGroup}>+</MoreButton>
-          </MoreWrap>
-        </TodoRow>
-      </TodoBg>
-      {isActionExpand && (
-        <ActionGroup>
-          <button onClick={handleClickEditButton}>Edit To-do</button>
-          <button onClick={handleTodoRemove}>Delete To-do</button>
-        </ActionGroup>
-      )}
-    </TodoWrap>
+    <ClickOutside onClickOutside={hideActiveTodo}>
+      <TodoWrap>
+        <TodoBg isEdit={isEdit}>
+          <TodoRow isActionExpand={isActionExpand}>
+            <DoneButtonWrap>
+              <DoneButton
+                onClick={() => {
+                  handleTodoUpdateStatus('completed')
+                }}
+              />
+            </DoneButtonWrap>
+            <TodoContent>{renderContent()}</TodoContent>
+            <MoreWrap>
+              <MoreButton onClick={toggleButtonGroup}>+</MoreButton>
+            </MoreWrap>
+          </TodoRow>
+        </TodoBg>
+        {isActionExpand && (
+          <ActionGroup>
+            <button onClick={handleClickEditButton}>Edit To-do</button>
+            <button onClick={handleTodoRemove}>Delete To-do</button>
+          </ActionGroup>
+        )}
+      </TodoWrap>
+    </ClickOutside>
   )
 }
 
@@ -108,6 +120,7 @@ const TodoWrap = styled.div`
 
 const TodoBg = styled.div`
   background-color: ${({ isEdit }) => (isEdit ? '#fffcee' : '#fff')};
+  transition: background-color 0.2s ease-in-out;
   padding: 0 60px;
 `
 
@@ -121,15 +134,19 @@ const TodoRow = styled.div`
 `
 
 const TodoTitle = styled.span`
+  position: relative;
   font-size: 20px;
   font-weight: 300;
   line-height: 1.1;
+  transition: color 0.2s ease-in-out;
+  color: ${({ status }) => (status === 'completed' ? '#999' : '#222')};
   text-decoration: ${({ status }) =>
     status === 'completed' ? 'line-through' : 'none'};
 `
 
 const TodoContent = styled.div`
   flex-grow: 1;
+  padding: 15px 0;
 `
 
 const DoneButtonWrap = styled.div`
@@ -205,5 +222,6 @@ const EditInput = styled.div`
     font-size: 20px;
     font-weight: 300;
     width: 100%;
+    margin-left: -1px;
   }
 `

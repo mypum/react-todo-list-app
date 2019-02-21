@@ -5,6 +5,7 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "react": "^16.8.2",
+    "react-click-outside": "github:tj/react-click-outside",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5",
     "styled-components": "^4.1.3",
