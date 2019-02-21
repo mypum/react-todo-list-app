@@ -18,7 +18,7 @@ export default function TodoItem(props) {
     dispatch({ type: 'REMOVE_TODO', payload: id })
   }
 
-  function handleTodoEdit(e) {
+  function handleTodoEdit() {
     dispatch({
       type: 'EDIT_TODO',
       payload: {
@@ -63,6 +63,10 @@ export default function TodoItem(props) {
     if (isActionExpand || isEdit) {
       setActionExpand(false)
       setEdit(false)
+    }
+
+    if (content !== props.todo.content) {
+      handleTodoEdit()
     }
   }
 
