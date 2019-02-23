@@ -28,6 +28,15 @@ export default function App() {
             <TodoList />
           </Wrapper>
         </Container>
+        <Credit>
+          Created by{' '}
+          <a
+            href="https://github.com/mypum"
+            rel="noopener noreferrer"
+            target="_blank">
+            @mypum
+          </a>
+        </Credit>
       </TodoStore.Provider>
     </React.Fragment>
   )
@@ -40,6 +49,7 @@ const Container = styled.div`
     padding: 0;
   }
 `
+
 const Wrapper = styled.div`
   width: 100%;
   margin: 15px auto 0;
@@ -50,5 +60,16 @@ const Wrapper = styled.div`
 
   @media (min-width: 900px) {
     width: 780px;
+  }
+`
+
+const Credit = styled.div`
+  text-align: center;
+  margin-top: 30px;
+  font-size: 16px;
+
+  a {
+    color: #222;
+    text-decoration: underline;
   }
 `
