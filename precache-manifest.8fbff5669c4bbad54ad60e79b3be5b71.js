@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/react-todo-list-app/static/js/2.ebf1408a.chunk.js"
   },
   {
-    "revision": "be8518f23e805e0939e1e6846a6cd1d6",
+    "revision": "cab1fab3ccea46f023a8da77297bb98b",
     "url": "/react-todo-list-app/index.html"
   }
 ];
