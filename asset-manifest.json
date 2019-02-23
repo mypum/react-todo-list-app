@@ -1,11 +1,11 @@
 {
-  "main.js": "/react-todo-list-app/static/js/main.813ad8f9.chunk.js",
-  "main.js.map": "/react-todo-list-app/static/js/main.813ad8f9.chunk.js.map",
+  "main.js": "/react-todo-list-app/static/js/main.78a72ab0.chunk.js",
+  "main.js.map": "/react-todo-list-app/static/js/main.78a72ab0.chunk.js.map",
   "runtime~main.js": "/react-todo-list-app/static/js/runtime~main.9c593912.js",
   "runtime~main.js.map": "/react-todo-list-app/static/js/runtime~main.9c593912.js.map",
   "static/js/2.ebf1408a.chunk.js": "/react-todo-list-app/static/js/2.ebf1408a.chunk.js",
   "static/js/2.ebf1408a.chunk.js.map": "/react-todo-list-app/static/js/2.ebf1408a.chunk.js.map",
   "index.html": "/react-todo-list-app/index.html",
-  "precache-manifest.8fbff5669c4bbad54ad60e79b3be5b71.js": "/react-todo-list-app/precache-manifest.8fbff5669c4bbad54ad60e79b3be5b71.js",
+  "precache-manifest.f9428b40a54b3170679b3c83f93dc92f.js": "/react-todo-list-app/precache-manifest.f9428b40a54b3170679b3c83f93dc92f.js",
   "service-worker.js": "/react-todo-list-app/service-worker.js"
 }
